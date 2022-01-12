@@ -8,7 +8,7 @@ import { LitElement, html } from './lit.min.js'
 const log = console.log.bind(console) // Stateless function, global to all methods
 
 const NCOLS = 5
-const NROWS = 6
+const NROWS = 5
 
 class WordGame extends LitElement {
   static get properties() {
@@ -24,9 +24,17 @@ class WordGame extends LitElement {
     super()
 
     // eslint-disable-next-line no-use-before-define
-    const words = Words.words()
-    const word = words[Math.floor(words.length * Math.random())]
-    this.answer = (location.hostname === 'localhost' ? 'gorge' : word)
+    const words_array = Words.words()
+    const words = [
+      words_array[Math.floor(words_array.length * Math.random())],
+      words_array[Math.floor(words_array.length * Math.random())],
+      words_array[Math.floor(words_array.length * Math.random())],
+      words_array[Math.floor(words_array.length * Math.random())],
+      words_array[Math.floor(words_array.length * Math.random())],
+    ]
+    log(words)
+
+    this.answer = words.join('')
     log(this.answer)
     this.picked = []
   }
@@ -42,9 +50,10 @@ class WordGame extends LitElement {
 
     const states = []
     if (this.picked.length && !(this.picked.length % NCOLS) && !nonword) {
-      const picks = this.picked.slice(-1 * NCOLS)
+      const picks = this.picked
       const answer = this.answer.split('')
-      for (let n = 0; n < NCOLS; n++) {
+      log({ picks, answer })
+      for (let n = 0; n < NCOLS * NROWS; n++) {
         if (picks[n] === answer[n])
           states[n] = 'success'
         else
@@ -68,7 +77,7 @@ class WordGame extends LitElement {
         // dramatically delay how the guessed word scores
         setTimeout(() => {
           if (solving_row_delay)
-            ltrs[i].state = states[i % NCOLS]
+            ltrs[i].state = states[i]
         }, solving_row_delay)
       }
     }
