@@ -1,0 +1,96 @@
+
+body {
+  margin-top: 10px;
+  color: #ddd;
+  background-color: #333;
+
+  transition: transform 1s ease, background-color 5s ease;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+.fade-out {
+  opacity: 0 !important;
+}
+
+
+ws-ltr {
+  display: inline-block;
+  vertical-align: top;
+  border: 2px solid #999;
+  text-transform: uppercase;
+  margin: 2px;
+  font-family: FiraCode;
+  overflow: hidden;
+}
+
+ws-ltr:hover {
+  border-color: white;
+}
+
+#ltrs ws-ltr {
+  /* 8vh   8% * 12 "rows" */
+  /* 12vw  12% * 8 "columns" */
+  width:  calc(min(12vw, 8vh));
+  height: calc(min(12vw, 8vh));
+  font-size: calc(min(8vw, 6vh));
+  border-radius: calc(min(6vw, 4vh));
+}
+#ltrs ws-ltr div {
+  margin-top: calc(-1 * min(.9vw, .9vh));
+}
+
+#scoring ws-ltr {
+  /* 8vh   8% * 12 "rows" */
+  /* 8vw   8% * 12 "columns" */
+  width:  calc(min(8vw, 8vh));
+  height: calc(min(8vw, 8vh));
+  font-size: calc(min(6vw, 6vh));
+  border-radius: calc(min(4vw, 4vh));
+}
+#scoring ws-ltr div {
+  margin-top: calc(-1 * min(.9vw, .9vh));
+}
+
+#scoring .backspace {
+  font-size: calc(min(2vw, 2vh));
+  line-height: 1.0;
+}
+#scoring .backspace div {
+  margin-top: calc(min(1.5vw, 1.5vh));
+}
+
+
+#scoring #spacebar {
+  width: 40vw;
+  font-size: calc(min(2vw, 2vh));
+  line-height: 1.2;
+}
+#scoring #spacebar div {
+  margin-top: calc(min(1.5vw, 1.5vh));
+}
+#space-msg {
+  transition: all 1s ease;
+  opacity: 0;
+}
+
+
+@font-face { font-family: FiraCode; src:url('FiraCode-Medium.otf'); }
+
+
+/* bootstrap overrides */
+a { color: cyan }
+
+/* fun animations */
+.flip {
+  transform: rotateY(90deg)
+}
+
+canvas {
+  z-index: 1;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
