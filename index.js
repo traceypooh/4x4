@@ -10,7 +10,7 @@ const log = console.log.bind(console) // Stateless function, global to all metho
 const NCOLS = 5
 const NROWS = 6
 
-class WordsmithGame extends LitElement {
+class WordGame extends LitElement {
   static get properties() {
     return {
       letters: Object,
@@ -107,7 +107,7 @@ class WordsmithGame extends LitElement {
         document.getElementsByTagName('body')[0].style.backgroundColor = '#111'
         setTimeout(() => document.getElementsByTagName('body')[0].classList.add('flip'), 3000)
         setTimeout(() => document.getElementsByTagName('body')[0].classList.remove('flip'), 4000)
-        setTimeout(WordsmithGame.fireworks, 5000)
+        setTimeout(WordGame.fireworks, 5000)
         won = true
       }
       // eslint-disable-next-line no-use-before-define
@@ -6683,4 +6683,4 @@ class Words {
   }
 }
 
-customElements.define('wordsmith-game', WordsmithGame)
+customElements.define('word-game', WordGame)
