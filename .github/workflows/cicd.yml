@@ -3,4 +3,4 @@ jobs:
   cicd:
     uses: internetarchive/cicd/.github/workflows/cicd.yml@main
     with:
-      NOMAD_VAR_HOSTNAMES: '["4x4.dev.archive.org","4x4.archive.org"]'
+      NOMAD_VAR_HOSTNAMES: '["4x4.dev.archive.org"]'
