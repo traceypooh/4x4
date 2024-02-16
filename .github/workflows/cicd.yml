@@ -4,3 +4,5 @@ jobs:
     uses: internetarchive/cicd/.github/workflows/cicd.yml@main
     with:
       NOMAD_VAR_HOSTNAMES: '["4x4.dev.archive.org"]'
+    secrets:
+      NOMAD_TOKEN: ${{ secrets.NOMAD_TOKEN }}
